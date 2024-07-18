@@ -1,0 +1,54 @@
+classDiagram
+    direction LR
+
+    class Suit {
+        <<enumeration>>
+        TREBOL : String = "T"
+        DIAMANTES : String = "D"
+        CORAZONES : String = "C"
+        ESPADAS : String = "E"
+        getSymbol() String
+    }
+
+    class Value {
+        <<enumeration>>
+        _2 : String = "2"
+        _3 : String = "3"
+        _4 : String = "4"
+        _5 : String = "5"
+        _6 : String = "6"
+        _7 : String = "7"
+        _8 : String = "8"
+        _9 : String = "9"
+        _10 : String = "10"
+        J : String = "J"
+        Q : String = "Q"
+        K : String = "K"
+        A : String = "A"
+        getSymbol() String
+    }
+
+    class Card {
+        - Suit suit
+        - Value value
+        + Card(Suit suit, Value value)
+        + getSuit() Suit
+        + getValue() Value
+        + toString() String
+    }
+
+    class Deck {
+        - List~Card~ cards
+        + Deck()
+        + dealCard() Card
+    }
+
+    class CardGame {
+        + main(String[] args)
+    }
+
+    Suit <-- Card 
+    Value <-- Card 
+    Card <-- Deck 
+
+
